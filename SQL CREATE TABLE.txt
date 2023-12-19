@@ -1,0 +1,93 @@
+
+/** Malinga Rajapaksha
+    01000552
+	RDBMS Final Assignment
+	10/01/2022
+**/
+
+create database Fast_Burgers;
+
+
+
+
+
+CREATE TABLE Customer (
+CusId INT NOT NULL, 
+FirstName VARCHAR(40) NOT NULL,
+LastName VARCHAR(40) NOT NULL,
+Contact VARCHAR(40) NOT NULL,
+Email VARCHAR(40) NOT NULL,
+PRIMARY KEY (CusId)
+);
+
+
+CREATE TABLE Staff (
+StaffId INT NOT NULL,
+FName VARCHAR(40) NOT NULL,
+LName VARCHAR(40) NOT NULL,
+Role VARCHAR(40) NOT NULL,
+PRIMARY KEY (StaffId)
+);
+
+CREATE TABLE Shift (
+ShiftId INT NOT NULL,
+StaffId INT NOT NULL,
+ShiftDate DATE, 
+PRIMARY KEY (ShiftId),
+FOREIGN KEY (StaffId) REFERENCES Staff(StaffId)
+);
+
+CREATE TABLE Item (
+ItemId INT NOT NULL,
+Name VARCHAR(40) NOT NULL,
+Type VARCHAR(40) NOT NULL,
+PRIMARY KEY (ItemId)
+);
+
+CREATE TABLE Stock (
+StockId INT NOT NULL,
+ItemId INT NOT NULL,
+Quantity INT NOT NULL,
+PRIMARY KEY (StockId),
+FOREIGN KEY (ItemId) REFERENCES Item(ItemId)
+);
+
+CREATE TABLE Savers_Menu (
+S_Id INT NOT NULL,
+f_name VARCHAR(40) NOT NULL,
+PRIMARY KEY (S_Id)
+);
+
+CREATE TABLE Regular_Menu (
+R_Id INT NOT NULL,
+f_name VARCHAR(40) NOT NULL,
+PRIMARY KEY (R_Id)
+);
+
+
+CREATE TABLE Menu (
+MenuId INT NOT NULL,
+ItemId INT NOT NULL,
+S_Id INT  NULL,
+R_Id INT  NULL,
+Name VARCHAR(40) NOT NULL,
+menuType VARCHAR(40) NOT NULL,
+PRIMARY KEY (MenuId),
+FOREIGN KEY(ItemId) REFERENCES Item(ItemId),
+FOREIGN KEY (S_Id) REFERENCES Savers_Menu(S_Id),
+FOREIGN KEY (R_Id) REFERENCES Regular_Menu(R_Id)
+);
+
+CREATE TABLE orders (
+OrderId INT NOT NULL,
+StaffId INT NOT NULL,
+CusId INT NOT NULL,
+MenuId INT NOT NULL,
+DateOrder DATE NOT NULL,
+PaymentType VARCHAR(5) NOT NULL,
+Total DECIMAL(8,2) NOT NULL,
+PRIMARY KEY (OrderId),
+FOREIGN KEY (StaffId) REFERENCES Staff(StaffId),
+FOREIGN KEY (CustId) REFERENCES Customer(CusId), 
+FOREIGN KEY (MenuId) REFERENCES Menu(MenuId)
+);

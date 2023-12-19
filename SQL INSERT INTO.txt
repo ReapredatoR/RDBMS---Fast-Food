@@ -1,0 +1,139 @@
+
+/** Malinga Rajapaksha
+    01000552
+	RDBMS Final Assignment 
+	10/01/2022
+**/
+
+
+
+
+
+
+INSERT INTO Customer (CusId, FirstName, LastName, Contact, Email)
+VALUES('100' ,'anush', 'Hurley', '07234567159', 'anushnHush@Gmail.com'),
+('101' ,'Josh', 'katar', '01123459929', 'Josh@Yahoo.com'),
+('102' ,'Ricky', 'Martine', '02235465744', 'Rikyt@hotline.com'),
+('103' ,'Markle', 'Shane', '05476234234', 'MseShane@Gmail.com'),
+('104' ,'stepan', 'Watson', '03320484849', 'Stepanil@Gmail.com'),
+('105' ,'Billy', 'Gates', '03456743782', 'BillyGat@Gmail.com'),
+('106' ,'hovik', 'Warn', '07210304994', 'Warn@Yahoo.com'),
+('107' ,'Sam', 'Patrick', '02393942233', 'Samjack@Yahoo.com'),
+('108' ,'Jacky', 'Jonson', '03939495955', 'Jacky@Gmail.com'),
+('109' ,'Ann', 'Raymond', '07220040504', 'AnnRay@Gmail.com');
+
+
+INSERT INTO Staff(staffId,FName, LName,role)
+VALUES ('1', 'Dawson', 'Craig', 'Manager'),
+('2', 'Jesse', 'Mclaughlin', 'Sales'),
+('3', 'Danny', 'Marry', 'Sales'),
+('4', 'Debra', 'Day', 'Chef'),
+('5', 'Pugh', 'Stevens', 'Sales'),
+('6', 'Berry', 'Cross', 'Sales'),                  
+('7', 'Caroll', 'Cross', 'Chef'),
+('8', 'Billy' , 'Jonson', 'Sales'),
+('9', 'Jack' , 'Rodolfo', 'Sales'),
+('10', 'Cross' , 'Swanson', 'Sales');
+
+
+
+INSERT INTO Shift (ShiftId, StaffId, ShiftDate)
+VALUES ('010', '1', '2020/02/12'),
+('011', '2', '2020/02/14'),
+('012', '3', '2020/02/14'),
+('013', '4', '2020/02/15'),
+('014', '5', '2020/02/14'),
+('015', '6', '2020/02/15'),
+('016', '7', '2020/02/17'),
+('017', '8', '2020/02/17'),
+('018', '9', '2020/02/18'),
+('019', '10', '2020/02/19');
+
+
+INSERT INTO Item (ItemId, Name, Type)
+VALUES('1', 'Breads', 'Food'),
+('2', 'Burgers', 'Food'),
+('3', 'Pastry', 'Food'),
+('4', 'coke', 'Drink'),
+('5', 'donut', 'Food'),
+('6', 'milk', 'Drink'),
+('7', 'Coffee', 'Drink'),
+('8', 'Fries', 'Food'),
+('9', 'cake', 'Food'),
+('10', 'cupcakes', 'Food');
+
+
+INSERT INTO Stock (StockId, ItemId, Quantity)
+VALUES('001', '1', '1000'),
+('002', '2', '670'),
+('003', '3', '500'),
+('004', '4', '150'),
+('005', '5', '120'),
+('006', '6', '150'),
+('007', '7', '235'),
+('008', '8',  '25'),
+('009', '9', '42'),
+('010', '10', '60');
+
+
+INSERT INTO Savers_Menu(S_Id, f_name )
+VALUES ('0100','Pastry'),
+('0101', 'Burgers'),
+('0102', 'cake'),
+('0103', 'cupcakes'),
+('0104', 'Sausage Bun'),
+('0105', 'Chocolate Cake'),
+('0106', 'Gingerbread Cake'),
+('0107', 'Coffee Cake'),
+('0108', 'Chocolate Chess Pie'),
+('0109', 'Shortbread Tea Cakes');
+
+
+
+
+INSERT INTO Regular_Menu(R_Id, f_name )
+VALUES ('0000', 'Pastry'),
+('0001', 'Burgers'),
+('0002', 'cake'),
+('0003', 'cupcakes'),
+('0004', 'Sausage Bun'),
+('0005', 'Chocolate Cake'),
+('0006', 'Gingerbread Cake'),
+('0007', 'Coffee Cake'),
+('0008', 'Chocolate Chess Pie'),
+('0009', 'Shortbread Tea Cakes');
+
+
+
+INSERT INTO Menu (MenuId, ItemId, S_Id, R_Id, Name, menuType)
+VALUES('201', '1', '0100' , '0000', 'Burgers' , 'Regular'),
+('202', '2', '0101' , '0001' , 'Burgers', 'Regular'),
+('203', '3', '0102' , '0002' , 'Cheesy', 'Regular'),
+('204', '4', '0103' , '0003' , 'Crispy wrap', 'Savers'),
+('205', '5', '0104' , '0004' , 'Pizza', 'Regular'),
+('206', '6', '0105' , '0005' , 'Burgers', 'Savers'),
+('207', '7', '0106' , '0006' , 'Soup', 'Savers'),
+('208', '8', '0107' , '0007' , 'Burgers', 'Savers'),
+('209', '9', '0108' , '0008' , 'Coffe', 'Regular'),
+('210', '10', '0109' , '0009' , 'tea' , 'Regular');
+
+
+INSERT INTO Orders (OrderId, StaffId, CusId, MenuId ,DateOrder, PaymentType, Total)
+VALUES ('1001', '1', '100', '201', '2020/02/13', 'Card', '1200.00'),
+('1002', '2', '101', '202', '2020/02/13', 'Cash', '1300.00'),
+('1003', '3', '102', '203', '2020/02/13', 'Cash', '1200.00'),
+('1004', '4', '103', '204', '2020/02/14', 'Cash', '1250.00'),
+('1005', '5', '104', '205', '2020/02/14', 'Card', '1400.00'),
+('1006', '6', '105', '206', '2020/02/15', 'Card', '1385.00'),
+('1007', '7', '106', '207', '2020/02/15', 'Cash', '1450.00'),
+('1008', '8', '107', '208', '2020/02/16', 'Card', '1400.00'),
+('1009', '9', '108', '209', '2020/02/17', 'Cash', '1540.00'),
+('1010', '10', '109', '210', '2020/02/18', 'Card', '1300.00');
+
+
+
+
+
+
+
+
